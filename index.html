@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .feedback-container {
+            max-width: 500px;
+            margin: 80px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004dc0;
+        }
+    </style>
+</head>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init({
+            publicKey: "roZD9_sPVf4Zk-Lgw",
+        });
+    })();
+</script>
+<script src="script.js"></script>
+
+<body>
+
+    <div class="feedback-container">
+        <h2>Send me Your Feedback</h2>
+        <form id="feedback-form" onsubmit="sendMail(event)"> <!-- Notice this change -->
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <label for="message">About Me (Things that you would like to share with me):</label>
+            <textarea id="message" name="message"
+                placeholder="Something you want to tell me but never had a chance to tell" rows="5" required></textarea>
+
+            <button type="submit">Send Feedback</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
